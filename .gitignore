@@ -1,0 +1,16 @@
+# IDE
+.vscode
+.vs
+.idea
+*.iml
+
+# Node.js
+gui/node/
+gui/node_modules/
+
+# Build output
+dist/
+target/
+
+#typings
+gui/typings/
