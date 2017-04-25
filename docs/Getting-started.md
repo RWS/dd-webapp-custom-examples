@@ -23,21 +23,55 @@ Some learning material:
 Make sure you have installed:
 
 * [Node.js](https://nodejs.org/) 
-    * 64 bit version is recommended
-    * Install NodeJs v6.x or higher
+  * 64 bit version is recommended
+  * Install NodeJs v6.x or higher
 * [Maven 3](https://maven.apache.org/download.cgi)
 * [Tomcat 8.5](http://tomcat.apache.org/download-80.cgi)
 * An IDE which has support for TypeScript / LESS
-    * [Atom](https://atom.io/)
-    * [Sublime Text](https://www.sublimetext.com/)
-    * [Visual Studio Code](https://code.visualstudio.com/)
-    * ...
+  * [Atom](https://atom.io/)
+  * [Sublime Text](https://www.sublimetext.com/)
+  * [Visual Studio Code](https://code.visualstudio.com/)
+  * ...
 * An IDE which has support for Java
-    * [IntelliJ IDEA](https://www.jetbrains.com/idea/specials/idea/idea.html)
-    * ...
+  * [IntelliJ IDEA](https://www.jetbrains.com/idea/specials/idea/idea.html)
+  * ...
 * A Content Delivery environment with data
 
 In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
+
+## Setting up Maven
+
+In order to download some snaphot artifacts which are used by the archetype. We will need to add a reference to the sonatype snaphots repository.
+
+1. Open up your main `settings.xml` file. On an Windows machine this file is located at `C:\Users\<username>\.m2\settings.xml`, on a Linux Ubuntu it is at `/usr/share/maven/conf/settings.xml`.
+2. Add an extra profile inside the `profiles` section (see code snippet below)
+3. Make this the active profile (see code snippet below)
+
+```xml
+<settings>
+    <profiles>
+        <profile>
+            <id>sonatype-nexus-snapshots</id>
+            <repositories>
+                <repository>
+                    <id>sonatype-nexus-snapshots</id>
+                    <name>sonatype-nexus-snapshots</name>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>sonatype-nexus-snapshots</activeProfile>
+    </activeProfiles>
+</settings>
+```
 
 ## Create a new project using the Maven Archetype
 
@@ -85,11 +119,8 @@ package: org.company
 Next step I'll do is setting up IntelliJ IDEA for development.
 
 1. Launch IntelliJ
-2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory.
+2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory
 
-### Setting up Maven
-
-**TODO, sonatype snapshots repository**
 
 ### Setting up Content Delivery configuration
 
