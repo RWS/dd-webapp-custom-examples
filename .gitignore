@@ -5,12 +5,12 @@
 *.iml
 
 # Node.js
-gui/node/
-gui/node_modules/
+custom-webapp/gui/node/
+custom-webapp/gui/node_modules/
 
 # Build output
 dist/
 target/
 
 #typings
-gui/typings/
+custom-webapp/gui/typings/

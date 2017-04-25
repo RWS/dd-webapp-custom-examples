@@ -35,6 +35,7 @@ Make sure you have installed:
 * An IDE which has support for Java
     * [IntelliJ IDEA](https://www.jetbrains.com/idea/specials/idea/idea.html)
     * ...
+* A Content Delivery environment with data
 
 In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
 
@@ -79,12 +80,25 @@ package: org.company
  Y: : y
 ```
 
-## Setting up IntelliJ IDEA
+## Setting up IntelliJ IDEA development environment
 
 Next step I'll do is setting up IntelliJ IDEA for development.
 
 1. Launch IntelliJ
 2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory.
+
+### Setting up Maven
+
+**TODO, sonatype snapshots repository**
+
+### Setting up Content Delivery configuration
+
+First step is to add the necessary configuration inside the `cd_client_config.xml` file. We'll need to provide the location of the discovery service, the client id and client secret of the Content Delivery system we are using.
+This file can be found at `src/main/resources/cd_client_conf.xml`.
+
+![Setting up Content Delivery configuration](./images/cd-configuration.png)
+
+### Setting up Tomcat
 
 In order to debug it I'll setup a configuration for Tomcat.
 
