@@ -83,9 +83,10 @@ Ok Let's start by opening the command prompt and run:
 
 ```bash
 cd "D:\projects\kc-web-app\custom-webapp-examples"
-mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish"
+mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.1.1"
 ```
 
+Notice that I'm using version `0.1.1`, this is just an example. Advised is to use the latest available version.
 I'll pick `org.company` as my group id and `custom-webapp` as the name of my artifact id.
 
 ```bash
@@ -173,4 +174,6 @@ In order to debug it I'll setup a configuration for Tomcat.
 ### Creating a custom home page
 
 ### Extend json api exposed by DXA Ish Module
+
+## Deploying your custom web application
 
