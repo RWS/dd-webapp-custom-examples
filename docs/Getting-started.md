@@ -169,6 +169,8 @@ In order to debug it I'll setup a configuration for Tomcat.
 
 ### Change the skin using the Theming capabilities
 
+See [Change the skin using the Theming capabilities](customizing/Change-the-skin.md).
+
 ### Advanced skin changes using css
 
 ### Creating a custom home page
