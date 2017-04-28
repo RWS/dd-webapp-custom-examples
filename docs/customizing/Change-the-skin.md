@@ -21,18 +21,18 @@ npm install
 After installing the packages let's start up the server.
 
 ```bash
-cd gui
 npm start
 ```
 
-Notice that this setup doesn't use a real backend but is only loading mock data.
-From now on any change I'll do inside the `gui` directory will be picked up by the build. 
+Any change I'll do inside the `gui` directory is now being picked up by the build. 
 
 ## Updating the color scheme
 
 Updating the color scheme can be done by opening up the `colors.less` file which is located inside the `gui/src/theming/` directory.
 
 In here you can find a set of neutral and accent colors defined. Let's change this to.
+
+It's not allowed to remove any of the colors in this list, it's only allowed to change the values of each variable. The  variable names can be considered as an api which allows you to easily upgrade your changes into the next version.
 
 ```less
 // ---------------------------------------------------------------------------------------------------------------------
@@ -66,5 +66,22 @@ After applying these changes you can see that the UI colors changed.
 There are still some things we need to optimize, for example the button collors were not updated. This will be fixed in the upcomming versions.
 
 ## Updating the company logo icon
+
+Updating the icons can be done by opening up the `icons.less` file which is located inside the `gui/src/theming/` directory.
+
+This file consist out of [mixins](http://lesscss.org/features/#mixins-feature). The only thing we are allowed to change are the internals of each mixin. 
+It's not possible to rename them or change the input parameters. Same as for the colors the mixin names can be considered as an api for easier upgrades.
+
+To update the company logo seen on the top left of the application we'll change the contents of the `.icon-company-logo()` mixin.
+
+I'm using a png image for this which I copied into a new `images` directory which I've created inside the `theming` directory.
+
+```less
+.icon-company-logo() {
+    background-image: url("./images/batman-logo.png");
+    height: 50px;
+    background-repeat: no-repeat;
+}
+```
 
 ## Updating the application font
