@@ -85,3 +85,49 @@ I'm using a png image for this which I copied into a new `images` directory whic
 ```
 
 ## Updating the application font
+
+Updating the font can be done by opening up the `fonts.less` file which is located inside the `gui/src/theming/` directory.
+
+By default there are 2 different fonts used. A font for the headers and one for anything else.
+
+It's possible to either import a custom font or use a standard font.
+
+In my example I'll change the font for the entire website to Arial.
+
+```less
+@import (reference) "colors.less";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// This file contains global LESS variables that can be used across the application when using fonts
+// ---------------------------------------------------------------------------------------------------------------------
+
+@fontFamily: "Arial";
+@fontHeaderFamily: "Arial";
+@fontFamilyPath: "./fonts/Calibri W01 Regular";
+@fontHeaderPath: "./fonts/Sommet Rounded W00 Regular";
+@fontFamilyFallback: "Comic Sans Ms";
+@fontSize: 14px;
+@fontColor: @neutralColor1;
+
+.import-header-font() {
+}
+
+.import-regular-font() {
+}
+
+.header-font(@weight: 400, @size:20px, @height: 24px) {
+    font-family: @fontHeaderFamily, @fontFamilyFallback;
+    font-style: normal;
+    font-weight: @weight;
+    font-size: @size;
+    line-height: @height;
+}
+```
+
+Notice that I've also emptied the `.import-header-font()` and `.import-regular-font()` mixins. 
+As we're not using a custom font these can be left blank.
+
+## Advanced skinning changes
+
+The things are above can be seen as the more simple cases of doing custom skinning. To fine tune everything we'll need to do some more advanced changes.
+We'll handle this inside the [Advanced skin changes using css](./Advanced-skinning.md) topic. 

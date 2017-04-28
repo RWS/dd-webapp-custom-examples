@@ -165,17 +165,4 @@ In order to debug it I'll setup a configuration for Tomcat.
 
 14. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
 
-## Start customizing
-
-### Change the skin using the Theming capabilities
-
-See [Change the skin using the Theming capabilities](customizing/Change-the-skin.md).
-
-### Advanced skin changes using css
-
-### Creating a custom home page
-
-### Extend json api exposed by DXA Ish Module
-
-## Deploying your custom web application
-
+After this you are ready to start [customizing the application](../README.md).
