@@ -7,6 +7,9 @@ import { IState } from "store/interfaces/State";
 import { configureStore } from "store/Store";
 import { Store } from "redux";
 
+// Custom imports
+import './custom-styles/skin-overwrites';
+
 const { App } = Components.AppComp;
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
