@@ -83,10 +83,10 @@ Ok Let's start by opening the command prompt and run:
 
 ```bash
 cd "D:\projects\kc-web-app\custom-webapp-examples"
-mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.1.1"
+mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.1.2"
 ```
 
-Notice that I'm using version `0.1.1`, this is just an example. Advised is to use the latest available version.
+Notice that I'm using version `0.1.2`, this is just an example. Advised is to use the latest available version.
 I'll pick `org.company` as my group id and `custom-webapp` as the name of my artifact id.
 
 ```bash
@@ -102,7 +102,7 @@ I'll pick `org.company` as my group id and `custom-webapp` as the name of my art
 [INFO]
 [INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Interactive mode
-[INFO] Archetype repository not defined. Using the one from [com.sdl.delivery.ish:dd-webapp-archetype:0.1.0] found in catalog remote
+[INFO] Archetype repository not defined. Using the one from [com.sdl.delivery.ish:dd-webapp-archetype:0.1.2] found in catalog remote
 Define value for property 'groupId': org.company
 Define value for property 'artifactId': custom-webapp
 Define value for property 'version' 1.0-SNAPSHOT: :
