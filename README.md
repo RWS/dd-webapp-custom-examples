@@ -11,3 +11,7 @@ Contributions (eg fixing docs, adding more examples, ...) are more than welcome!
 ## Getting started guide
 
 Start [here](./docs/Getting-started.md).
+
+## Customization examples
+
+1. [Change the skin using the Theming capabilities](./docs/customizing/Change-the-skin.md).
