@@ -1,16 +1,16 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Components, Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Services } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
-import { Provider } from "react-redux";
-import { IState } from "store/interfaces/State";
-import { configureStore } from "store/Store";
+import { Provider } from "react-redux"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
+import { IState } from "store/interfaces/State"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
+import { configureStore } from "store/Store"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
 import { Store } from "redux";
+import App from "./custom-components/App";
 
 // Custom imports
-import './custom-styles/skin-overwrites';
+import "./custom-styles/skin-overwrites";
 
-const { App } = Components.AppComp;
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
 

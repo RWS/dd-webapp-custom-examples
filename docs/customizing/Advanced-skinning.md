@@ -8,7 +8,7 @@ I'll be using Visual Studio Code as my editor and will use the lightweight setup
 
 1. You've completed the [getting started guide](../Getting-started.md)
 2. You've completed the [Change the skin using the Theming capabilities](./Change-the-skin.md) tutorial
-2. You are familiar with [LESS](http://lesscss.org/) and css
+3. You are familiar with [LESS](http://lesscss.org/) and css
 
 ## Starting the application in debug mode
 
@@ -34,7 +34,7 @@ import { configureStore } from "store/Store";
 import { Store } from "redux";
 
 // Custom imports
-import './custom-styles/skin-overwrites';
+import "./custom-styles/skin-overwrites";
 
 // ...
 ```
