@@ -6,10 +6,10 @@ import { Provider } from "react-redux"; // TODO: import from @sdl/delivery-ish-d
 import { IState } from "store/interfaces/State"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
 import { configureStore } from "store/Store"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
 import { Store } from "redux";
-import App from "./custom-components/App";
 
 // Custom imports
 import "./custom-styles/skin-overwrites";
+import App from "./custom-components/App";
 
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;

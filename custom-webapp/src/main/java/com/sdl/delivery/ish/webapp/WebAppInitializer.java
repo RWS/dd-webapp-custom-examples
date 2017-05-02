@@ -3,6 +3,7 @@ package com.sdl.delivery.ish.webapp;
 import com.sdl.delivery.ish.webapp.module.SpringInitializer;
 import com.sdl.delivery.ish.webapp.module.controller.PageController;
 import lombok.extern.slf4j.Slf4j;
+import org.company.Initializer;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -32,7 +33,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
         log.debug("Initializing servlet application context");
         AnnotationConfigWebApplicationContext servletAppContext = new AnnotationConfigWebApplicationContext();
 
-        servletAppContext.register(SpringInitializer.class, PageController.class);
+        // Custom spring configuration is added to the end
+        servletAppContext.register(SpringInitializer.class, PageController.class, Initializer.class);
 
         log.debug("Registering Spring ContextLoaderListener");
         registerListener(servletContext, new ContextLoaderListener(servletAppContext));

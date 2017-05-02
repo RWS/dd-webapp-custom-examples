@@ -2,7 +2,7 @@
 
 In this tutorial we'll update the application to use a customized home page.
 
-I'll be using Visual Studio Code as my editor and will use the lightweight setup using a fake backend with mock data.
+> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
 
 ## Prerequisites
 
@@ -114,10 +114,9 @@ import { Provider } from "react-redux";
 import { IState } from "store/interfaces/State";
 import { configureStore } from "store/Store";
 import { Store } from "redux";
-import App from "./custom-components/App";
 
 // Custom imports
-import "./custom-styles/skin-overwrites";
+import App from "./custom-components/App";
 
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
@@ -151,14 +150,16 @@ const render = (AppComp: typeof App): void => {
 render(App);
 ```
 
-4. Update our build scripts for development purposses inside `gui/build/gulp-tasks/serve.js`
+## Update GUI dev environment build script
+
+In order to have the GUI build working for the new route we need to change `gui/build/gulp-tasks/serve.js`.
 
 ```javascript
 // ...
 
 const publicationContentRegex = /^\/app\/[0-9]+.*$/gi; // All urls starting with a number
 const publicationsListContentRegex = /^\/app\/publications.*$/gi; // Publication list
-const productFamiliesContentRegex = /^\/app\/productfamilylist.*$/gi; // Custom product families page
+const productFamiliesContentRegex = /^\/app\/productfamilylist$/gi; // Custom product families page
 if (req.url.match(/^\/app(\/home(;jsessionid=[\w\d]+)?)?$/gi) ||
     req.url.match(publicationContentRegex) ||
     req.url.match(publicationsListContentRegex) ||
@@ -169,4 +170,110 @@ if (req.url.match(/^\/app(\/home(;jsessionid=[\w\d]+)?)?$/gi) ||
 // ...
 ```
 
-5. Update the backend to render the home page for the `/productfamilylist` url
+## Add a new controller to the Java backend
+
+To have deep linking working we'll need to add a controller to match the new url.
+
+1. Create a new controller class (`src/main/java/org/company/controllers/CustomController.java`)
+
+```java
+package org.company.controllers;
+
+import com.sdl.webapp.common.api.model.page.PageModelImpl;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static com.sdl.webapp.common.controller.RequestAttributeNames.PAGE_MODEL;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
+@Controller
+public class CustomController {
+
+    /**
+     * Custom routes for gui entry points
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(
+            value = {"/productfamilylist"},
+            method = GET
+    )
+    public String productFamilyList(HttpServletRequest request) {
+        request.setAttribute(PAGE_MODEL, new PageModelImpl());
+        return "home";
+    }
+}
+```
+
+2. Add a class to initilialize sprint configuration (`src/main/java/org/company/Initializer.java`)
+
+```java
+package org.company;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * Initializes Spring context for web application.
+ */
+@Configuration
+@ComponentScan(basePackages = "org.company")
+public class Initializer {
+}
+```
+
+3. Update the web app initializer (`src/main/java/com/sdl/delivery/ish/webapp/WebAppInitializer.java`) to load the `Initializer` class
+
+```java
+package com.sdl.delivery.ish.webapp;
+
+import com.sdl.delivery.ish.webapp.module.SpringInitializer;
+import com.sdl.delivery.ish.webapp.module.controller.PageController;
+import lombok.extern.slf4j.Slf4j;
+import org.company.Initializer;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
+import static com.sdl.webapp.common.util.InitializationUtils.loadActiveSpringProfiles;
+import static com.sdl.webapp.common.util.InitializationUtils.registerListener;
+import static com.sdl.webapp.common.util.InitializationUtils.registerServlet;
+
+/**
+ * WebApp initializer.
+ */
+@Slf4j
+public class WebAppInitializer implements WebApplicationInitializer {
+
+    /**
+     * Executed when the app starts.
+     *
+     * @param servletContext
+     * @throws ServletException
+     */
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        log.debug("Initializing servlet application context");
+        AnnotationConfigWebApplicationContext servletAppContext = new AnnotationConfigWebApplicationContext();
+
+        // Custom spring configuration is added to the end
+        servletAppContext.register(SpringInitializer.class, PageController.class, Initializer.class);
+
+        log.debug("Registering Spring ContextLoaderListener");
+        registerListener(servletContext, new ContextLoaderListener(servletAppContext));
+
+        log.debug("Registering Spring DispatcherServlet");
+        registerServlet(servletContext, new DispatcherServlet(servletAppContext), "/").setLoadOnStartup(1);
+
+        loadActiveSpringProfiles(servletContext, servletAppContext);
+    }
+}
+
+```

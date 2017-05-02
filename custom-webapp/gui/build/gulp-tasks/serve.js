@@ -71,7 +71,7 @@ module.exports = function (buildOptions, gulp, browserSync) {
                     // example: /39137/234/MP330/User-Guide (only the first number is mandatory)
                     const publicationContentRegex = /^\/app\/[0-9]+.*$/gi; // All urls starting with a number
                     const publicationsListContentRegex = /^\/app\/publications.*$/gi; // Publication list
-                    const productFamiliesContentRegex = /^\/app\/productfamilylist.*$/gi; // Custom product families page
+                    const productFamiliesContentRegex = /^\/app\/productfamilylist$/gi; // Custom product families page
                     if (req.url.match(/^\/app(\/home(;jsessionid=[\w\d]+)?)?$/gi) ||
                         req.url.match(publicationContentRegex) ||
                         req.url.match(publicationsListContentRegex) ||
