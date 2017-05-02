@@ -4,6 +4,8 @@ In this tutorial we'll update the application skin using the Theming capabilitie
 
 I'll be using Visual Studio Code as my editor and will use the lightweight setup using a fake backend with mock data.
 
+> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
+
 ## Prerequisites
 
 1. You've completed the [getting started guide](../Getting-started.md)
