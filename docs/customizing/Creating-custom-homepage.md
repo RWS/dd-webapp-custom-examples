@@ -7,7 +7,7 @@ I'll be using Visual Studio Code as my editor and will use the lightweight setup
 ## Prerequisites
 
 1. You've completed the [getting started guide](../Getting-started.md)
-2. You are familiar with [TypeScript](https://egghead.io/courses/up-and-running-with-typescript), [JavaScript (ES6)](https://egghead.io/courses/learn-es6-ecmascript-2015), [Webpack](https://webpack.js.org/) and [React]((https://egghead.io/courses/react-fundamentals))
+2. You are familiar with [TypeScript](https://egghead.io/courses/up-and-running-with-typescript), [JavaScript (ES6)](https://egghead.io/courses/learn-es6-ecmascript-2015), [Webpack](https://webpack.js.org/) and [React](https://egghead.io/courses/react-fundamentals)
 
 ## Starting the application in debug mode
 
@@ -61,7 +61,8 @@ export default Home;
 
 ## Change the application routing to use our newly created page as the new home page
 
-In the previous step we've created a new component. Let's put this component into use using the `/home` url. I'll also add routing for the `/productfamilylist` url where I'll use the `ProductFamiliesList` component.
+In the previous step we've created a new component. Let's enable this component for the `/home` url. 
+I'll also add routing for the `/productfamilylist` url where I'll use the `ProductFamiliesList` component.
 
 To do this we'll need to overwrite the default `App` component which is owning the routing of the application on the gui.
 
@@ -102,7 +103,7 @@ export default App;
 
 This example is quite complex as it requires some knowledge of the source code. In future versions we'll provide a more easy way of doing this.
 
-3. Update ´gui/Main.tsx´ to use our custom ´App´ component
+3. Update `gui/Main.tsx` to use our custom `App` component. To do this I've imported the custom implementation of the `App` component and used this one inside the initial render
 
 ```typescript
 import * as React from "react";

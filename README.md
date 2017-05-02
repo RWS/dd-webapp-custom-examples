@@ -16,7 +16,7 @@ Start [here](./docs/Getting-started.md).
 
 1. [Change the skin using the Theming capabilities](./docs/customizing/Change-the-skin.md)
 2. [Advanced skin changes using css](./docs/customizing/Advanced-skinning.md)
-3. [Creating a custom home page](./docs/Creating-custom-homepage.md)
+3. [Creating a custom home page](./docs/customizing/Creating-custom-homepage.md)
 4. Overwriting a GUI component
 5. Extend json api exposed by DXA Ish Module
 
