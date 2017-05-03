@@ -25,7 +25,7 @@ I'll be using the url I've created in the [Creating a custom home page](./Creati
 
 ```typescript
 import * as React from "react";
-import { Link } from "react-router"
+import { Link } from "react-router";
 import { path } from "utils/Path";
 import { Breadcrumbs as BreadcrumbsBase } from "@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs";
 
