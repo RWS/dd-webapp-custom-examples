@@ -5,9 +5,25 @@ import { Breadcrumbs as BreadcrumbsBase } from "@sdl/delivery-ish-dd-webapp-gui/
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {
-        const baseComp = super.render();
-        if (baseComp.props && baseComp.props.children) {
-            const ulComp = baseComp.props.children;
+        /**
+         * See source implementation of render method to know what jsx is created:
+         * node_modules/@sdl/delivery-ish-dd-webapp-gui/src/components/presentation/Breadcrumbs.tsx
+         *
+         * In this customization we've overwritten the Link component used for the Home item (className="home")
+         *
+         * <div className={"sdl-dita-delivery-breadcrumbs"}>
+         *     <ul>
+         *         <li>
+         *             <Link className="home" title={homeLabel} to={`${path.getRootPath()}home`}>{homeLabel}</Link>
+         *             <span className="separator" />
+         *         </li>
+         *         ...
+         *     </ul>
+         * </div>
+         */
+        const divComp = super.render();
+        if (divComp.props && divComp.props.children) {
+            const ulComp = divComp.props.children;
             if (ulComp.props && Array.isArray(ulComp.props.children)) {
                 const liComp = ulComp.props.children[0];
                 if (liComp.props && Array.isArray(liComp.props.children)) {
@@ -19,6 +35,6 @@ export class Breadcrumbs extends BreadcrumbsBase {
                 }
             }
         }
-        return baseComp;
+        return divComp;
     }
 }
