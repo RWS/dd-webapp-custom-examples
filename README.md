@@ -1,4 +1,4 @@
-# Dita Delivery Web Application Customization examples
+# Dita Delivery Web Application Customization examples [![Build Status](https://travis-ci.org/sdl/dd-webapp-custom-examples.svg?branch=master)](https://travis-ci.org/sdl/dd-webapp-custom-examples)
 
 This Repository contains out of documentation and examples for building a web applictation using the new DITA Delivery Platform.
 
