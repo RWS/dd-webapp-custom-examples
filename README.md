@@ -18,6 +18,6 @@ Start [here](./docs/Getting-started.md).
 2. [Advanced skin changes using css](./docs/customizing/Advanced-skinning.md)
 3. [Creating a custom home page](./docs/customizing/Creating-custom-homepage.md)
 4. [Overwriting a GUI component](./docs/customizing/Overwriting-gui-component.md)
-5. Extending the json api exposed by the DXA Ish Module
+5. [Extending the json api exposed by the DXA Ish Module](./docs/customizing/Extending-json-api.md)
 
 ## Deploying your custom web application
