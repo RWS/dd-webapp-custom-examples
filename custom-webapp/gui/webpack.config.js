@@ -29,7 +29,11 @@ module.exports = (isTest, isDebug) => {
                 ReactDOM: 'react-dom',
                 ReactDOMServer: 'react-dom/server',
                 // Custom theme
-                'theme-styles.less': path.resolve(__dirname, 'src/theming/styles.less')
+                'theme-styles.less': path.resolve(__dirname, 'src/theming/styles.less'),
+                // Custom components overwrites
+                'components/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
+                '@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs':
+                    path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components/presentation/Breadcrumbs.js')
             },
             modules: [
                 path.resolve(__dirname),
