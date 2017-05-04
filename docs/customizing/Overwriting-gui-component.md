@@ -27,7 +27,7 @@ I'll be using the url I've created in the [Creating a custom home page](./Creati
 import * as React from "react";
 import { Link } from "react-router";
 import { path } from "utils/Path";
-import { Breadcrumbs as BreadcrumbsBase } from "@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs";
+import { Breadcrumbs as BreadcrumbsBase } from "@sdl/dd/base/presentation/Breadcrumbs";
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {
@@ -66,17 +66,20 @@ export class Breadcrumbs extends BreadcrumbsBase {
 }
 ```
 
-We've imported the default BreadCrumbs implementation using `@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs` as it's location. 
+We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as it's location. 
+The `@sdl/dd/base` prefix is to provide a way of still having access to the default implementation when overwriting the alias of a certain component.
+
 For this to work we'll need to change some configuration inside our webpack file, we'll handle this in the next section.
 To get an understanding of how the component is working have a look at the source file which is packaged with the npm package.
-
-In future versions we'll improve the syntax to overwrite the components by providing aliases.
 
 ## Overwriting the default breadcrumbs implementation
 
 To use the component we created in the previous step we'll need to change the webpack configuration which can be found inside `src/webpack.config.js`.
 
 We'll add some extra configuration inside the `config > resolve > alias` configuration.
+
+Put the custom overwrite after the `// Custom components overwrites` comment and before the `// Components aliases` comment. 
+This is important as the sequence is used to resolve dependencies in a certain order.
 
 ```javascript
 const config = {
@@ -90,9 +93,10 @@ const config = {
             // Custom theme
             'theme-styles.less': path.resolve(__dirname, 'src/theming/styles.less'),
             // Custom components overwrites
-            'components/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
-            '@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs':
-                path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components/presentation/Breadcrumbs.js')
+            '@sdl/dd/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
+            // Components aliases
+            '@sdl/dd/base': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components'),
+            '@sdl/dd': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components')
         },
         // ...
     },

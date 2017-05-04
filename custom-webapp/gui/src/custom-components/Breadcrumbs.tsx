@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router";
 import { path } from "utils/Path";
-import { Breadcrumbs as BreadcrumbsBase } from "@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs";
+import { Breadcrumbs as BreadcrumbsBase } from "@sdl/dd/base/presentation/Breadcrumbs";
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {
