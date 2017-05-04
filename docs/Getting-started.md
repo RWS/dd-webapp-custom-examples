@@ -39,7 +39,7 @@ Make sure you have installed:
 
 In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
 
-> You can find the result of this guide [here](../../custom-webapp/)
+> You can find the result of this guide [here](../custom-webapp/)
 
 ## Setting up Maven
 
