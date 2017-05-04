@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application. 
+Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application from scratch. 
 We assume you are familiar with **TypeScript, JavaScript (ES6), Webpack, HTML, XML, React, LESS, CSS, Java, Spring, DXA and Maven**.
 
 Some learning material:
@@ -39,6 +39,8 @@ Make sure you have installed:
 
 In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
 
+> You can find the result of this guide [here](../../custom-webapp/)
+
 ## Setting up Maven
 
 In order to download some snaphot artifacts which are used by the archetype. We will need to add a reference to the sonatype snaphots repository.
@@ -75,7 +77,7 @@ In order to download some snaphot artifacts which are used by the archetype. We 
 
 ## Create a new project using the Maven Archetype
 
-First step we will need to do is to create a directory. 
+First step we will need to do is to create a new directory.
 I've create following directory on my machine: `D:\projects\kc-web-app\custom-webapp-examples`. 
 I'll be usign this directory further on inside my examples.
 
@@ -121,7 +123,6 @@ Next step I'll do is setting up IntelliJ IDEA for development.
 
 1. Launch IntelliJ
 2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory
-
 
 ### Setting up Content Delivery configuration
 
