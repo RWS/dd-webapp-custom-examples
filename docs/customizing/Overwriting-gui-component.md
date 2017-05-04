@@ -29,7 +29,7 @@ import { Link } from "react-router";
 import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import { Breadcrumbs as BreadcrumbsBase } from "@sdl/dd/base/presentation/Breadcrumbs";
 
-const { path } = Utils.Path;
+const { path } = Utils;
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {
