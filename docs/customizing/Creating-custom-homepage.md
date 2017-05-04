@@ -103,7 +103,7 @@ export default App;
 
 This example is quite complex as it requires some knowledge of the source code. In future versions we'll provide a more easy way of doing this.
 
-3. Update `gui/Main.tsx` to use our custom `App` component. To do this I've imported the custom implementation of the `App` component and used this one inside the initial render
+3. Update `gui/src/Main.tsx` to use our custom `App` component. To do this I've imported the custom implementation of the `App` component and used this one inside the initial render
 
 ```typescript
 import * as React from "react";
