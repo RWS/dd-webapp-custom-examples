@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application. 
+Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application from scratch. 
 We assume you are familiar with **TypeScript, JavaScript (ES6), Webpack, HTML, XML, React, LESS, CSS, Java, Spring, DXA and Maven**.
 
 Some learning material:
@@ -38,6 +38,8 @@ Make sure you have installed:
 * A Content Delivery environment with data
 
 In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
+
+> You can find the result of this guide [here](../../custom-webapp/)
 
 ## Setting up Maven
 
