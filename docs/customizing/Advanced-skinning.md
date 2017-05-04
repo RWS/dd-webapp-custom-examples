@@ -28,12 +28,11 @@ This is considered to be more advanced and requires extra validation when upgrad
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Components, Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
-import { IState } from "store/interfaces/State";
-import { configureStore } from "store/Store";
 import { Store } from "redux";
+import { Route } from "react-router";
 
 // Custom imports
 import "./custom-styles/skin-overwrites";

@@ -24,8 +24,10 @@ As a first step we'll create a new component called `Home`.
 ```typescript
 import * as React from "react";
 import { Link } from "react-router";
-import { path } from "utils/Path";
+import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import "./styles/Home";
+
+const { path } = Utils.Path;
 
 const Home = (): JSX.Element => {
     return (
@@ -69,23 +71,20 @@ To do this we'll need to add some children to the `App` component which is ownin
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Components, Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
-import { IState } from "store/interfaces/State";
-import { configureStore } from "store/Store";
 import { Store } from "redux";
 import { Route } from "react-router";
-
-const { App } = Components.AppComp;
-const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
 // Custom imports
 import "./custom-styles/skin-overwrites";
 import Home from "./custom-components/Home";
 
+const { App } = Components.AppComp;
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
+const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
 const mainElement = document.getElementById("main-view-target");
 

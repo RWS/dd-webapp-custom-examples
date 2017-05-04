@@ -26,8 +26,10 @@ I'll be using the url I've created in the [Creating a custom home page](./Creati
 ```typescript
 import * as React from "react";
 import { Link } from "react-router";
-import { path } from "utils/Path";
+import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import { Breadcrumbs as BreadcrumbsBase } from "@sdl/dd/base/presentation/Breadcrumbs";
+
+const { path } = Utils.Path;
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {

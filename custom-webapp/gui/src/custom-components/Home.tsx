@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Link } from "react-router";
-import { path } from "utils/Path"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
+import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import "./styles/Home";
+
+const { path } = Utils.Path;
 
 const Home = (): JSX.Element => {
     return (
