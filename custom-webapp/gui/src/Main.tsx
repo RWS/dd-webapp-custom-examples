@@ -1,15 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Components, Services } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
-import { Provider } from "react-redux"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
+import { Provider } from "react-redux";
 import { IState } from "store/interfaces/State"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
 import { configureStore } from "store/Store"; // TODO: import from @sdl/delivery-ish-dd-webapp-gui
 import { Store } from "redux";
+import { Route } from "react-router";
+
+const { App } = Components.AppComp;
+const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
 // Custom imports
 import "./custom-styles/skin-overwrites";
-import App from "./custom-components/App";
+import Home from "./custom-components/Home";
 
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
@@ -36,7 +40,10 @@ const render = (AppComp: typeof App): void => {
     } else {
         ReactDOM.render(
             <Provider store={store}>
-                <AppComp services={services} history={browserHistory as ReactRouter.History} />
+                <AppComp services={services} history={browserHistory as ReactRouter.History}>
+                    <Route path="home" component={Home} />,
+                    <Route path="productfamilylist" component={ProductFamiliesList} />
+                </AppComp>
             </Provider>, mainElement);
     }
 };
