@@ -85,10 +85,10 @@ Ok Let's start by opening the command prompt and run:
 
 ```bash
 cd "D:\projects\kc-web-app\custom-webapp-examples"
-mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.1.2"
+mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.2.0"
 ```
 
-Notice that I'm using version `0.1.2`, this is just an example. Advised is to use the latest available version.
+Notice that I'm using version `0.2.0`, this is just an example. Advised is to use the latest available version.
 I'll pick `org.company` as my group id and `custom-webapp` as the name of my artifact id.
 
 ```bash
