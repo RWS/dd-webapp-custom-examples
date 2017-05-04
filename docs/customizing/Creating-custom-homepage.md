@@ -68,6 +68,8 @@ I'll also add routing for the `/productfamilylist` url where I'll use the `Produ
 
 To do this we'll need to add some children to the `App` component which is owning the routing of the application on the gui.
 
+Update `gui/src/Main.tsx` as followed.
+
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
