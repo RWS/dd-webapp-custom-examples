@@ -77,7 +77,7 @@ In order to download some snaphot artifacts which are used by the archetype. We 
 
 ## Create a new project using the Maven Archetype
 
-First step we will need to do is to create a directory. 
+First step we will need to do is to create a new directory.
 I've create following directory on my machine: `D:\projects\kc-web-app\custom-webapp-examples`. 
 I'll be usign this directory further on inside my examples.
 
@@ -123,7 +123,6 @@ Next step I'll do is setting up IntelliJ IDEA for development.
 
 1. Launch IntelliJ
 2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory
-
 
 ### Setting up Content Delivery configuration
 
