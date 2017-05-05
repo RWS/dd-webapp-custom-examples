@@ -26,10 +26,7 @@ I'll be using the url I've created in the [Creating a custom home page](./Creati
 ```typescript
 import * as React from "react";
 import { Link } from "react-router";
-import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import { Breadcrumbs as BreadcrumbsBase } from "@sdl/dd/base/presentation/Breadcrumbs";
-
-const { path } = Utils;
 
 export class Breadcrumbs extends BreadcrumbsBase {
     public render(): JSX.Element {
@@ -49,27 +46,53 @@ export class Breadcrumbs extends BreadcrumbsBase {
          *     </ul>
          * </div>
          */
-        const divComp = super.render();
-        if (divComp.props && divComp.props.children) {
-            const ulComp = divComp.props.children;
+        const baseDivComp = super.render();
+        let originalHomeLinkCompProps: { title: string; to: string, children: string } | undefined;
+        let liComponents: {}[] = [];
+        if (baseDivComp.props && baseDivComp.props.children) {
+            const ulComp = baseDivComp.props.children;
             if (ulComp.props && Array.isArray(ulComp.props.children)) {
+                liComponents = ulComp.props.children;
                 const liComp = ulComp.props.children[0];
                 if (liComp.props && Array.isArray(liComp.props.children)) {
-                    const liCompChilds = liComp.props.children as { props: { to: string, children: string } }[];
+                    const liCompChilds = liComp.props.children;
                     const homeLinkComp = liCompChilds[0];
-                    const props = { ...homeLinkComp.props };
-                    props.to = path.getRootPath() + "productfamilylist";
-                    liCompChilds[0] = <Link {...props}>{props.children}</Link>;
+                    originalHomeLinkCompProps = { ...homeLinkComp.props };
                 }
             }
         }
-        return divComp;
+        if (originalHomeLinkCompProps) {
+            const updatedHomeUrl = originalHomeLinkCompProps.to.replace(/home$/gi, "productfamilylist");
+            liComponents.splice(0, 1); // Remove the first item which is the Home link
+            return (
+                <div className={"sdl-dita-delivery-breadcrumbs"}>
+                    <ul>
+                        <li>
+                            <Link className="home" title={originalHomeLinkCompProps.title} to={updatedHomeUrl}>
+                                {originalHomeLinkCompProps.children}
+                            </Link>
+                            <span className="separator" />
+                        </li>
+                        {liComponents}
+                    </ul>
+                </div>
+            );
+        }
+        return baseDivComp;
     }
 }
+
 ```
 
 We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as it's location. 
 The `@sdl/dd/base` prefix is to provide a way of still having access to the default implementation when overwriting the alias of a certain component.
+
+Overwriting the `render` method can be quite tricky as the react elements returned from the base are immutable and cannot be changed. 
+The only way is to create a new instance of the react elements. 
+In this example we've called the base render to get the original items in the breadcrumbs. We then wrap this into a newly rendered component which we then return.
+
+**There is also a limitation when overwriting a component, it is not allowed to import from `@sdl/delivery-ish-dd-webapp-gui` as this would lead to an import with `undefined` as value.
+This is because we're overwriting the internal build process of the package `@sdl/delivery-ish-dd-webapp-gui` itself.**
 
 For this to work we'll need to change some configuration inside our webpack file, we'll handle this in the next section.
 To get an understanding of how the component is working have a look at the source file which is packaged with the npm package.
