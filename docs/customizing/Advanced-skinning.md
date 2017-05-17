@@ -28,12 +28,11 @@ This is considered to be more advanced and requires extra validation when upgrad
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Components, Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
-import { IState } from "store/interfaces/State";
-import { configureStore } from "store/Store";
 import { Store } from "redux";
+import { Route } from "react-router";
 
 // Custom imports
 import "./custom-styles/skin-overwrites";
@@ -47,9 +46,9 @@ import "./custom-styles/skin-overwrites";
 @import (reference) "~theme-styles";
 
 .sdl-dita-delivery-app {
-    .sdl-dita-delivery-searchbar {
-        background-image: none;
-        background-color: @neutralColor5;
+
+    .sdl-activityindicator {
+        filter: grayscale(1);
     }
 
     .sdl-dita-delivery-breadcrumbs ul li .separator {
@@ -57,7 +56,6 @@ import "./custom-styles/skin-overwrites";
     }
 
     .sdl-button.graphene.sdl-button-purpose-confirm {
-        background-color: @accentColor1;
         &:hover {
             opacity: 0.5;
         }
@@ -67,10 +65,10 @@ import "./custom-styles/skin-overwrites";
         background-color: #f6f6f6;
     }
 }
+
 ```
 
-The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the buttons / tiles on the home page. 
-We've also removed the background image from the search bar.
+The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the activity indicator, buttons and the tiles on the home page. 
 
 To get access to the mixins / variables defined inside the theming directory we've added an import on the top `@import (reference) "~theme-styles";`. 
 This import can be used in any less file to get access to the theming api's.

@@ -24,8 +24,10 @@ As a first step we'll create a new component called `Home`.
 ```typescript
 import * as React from "react";
 import { Link } from "react-router";
-import { path } from "utils/Path";
+import { Utils } from "@sdl/delivery-ish-dd-webapp-gui";
 import "./styles/Home";
+
+const { path } = Utils;
 
 const Home = (): JSX.Element => {
     return (
@@ -64,62 +66,27 @@ export default Home;
 In the previous step we've created a new component. Let's enable this component for the `/home` url. 
 I'll also add routing for the `/productfamilylist` url where I'll use the `ProductFamiliesList` component.
 
-To do this we'll need to overwrite the default `App` component which is owning the routing of the application on the gui.
+To do this we'll need to add some children to the `App` component which is owning the routing of the application on the gui.
 
-1. Create a new file called `App.tsx` in the same directory as we've put the `Home.tsx` file
-2. To overwrite the default routing we'll need to overwrite the `render` method of the default `App` component
-
-```typescript
-import { Components } from "@sdl/delivery-ish-dd-webapp-gui";
-import * as React from "react";
-import { Route } from "react-router";
-import Home from "./Home";
-import { ProductFamiliesList } from "components/container/ProductFamiliesList";
-
-class App extends Components.AppComp.App {
-    public render(): JSX.Element {
-        /**
-         * In order to know where we can inject the proper overwrite have a look at the source code of the App component.
-         * This can be found inside the node_modules directory of your project.
-         * node_modules/@sdl/delivery-ish-dd-webapp-gui/src/components/container/App.tsx
-         */
-        const routerComp = super.render();
-        if (routerComp.props && routerComp.props.children) {
-            const routeComp = routerComp.props.children;
-            if (routeComp && Array.isArray(routeComp.props.children)) {
-                const routes = routeComp.props.children as {}[];
-                routes.unshift([
-                    <Route path="home" component={Home} />,
-                    <Route path="productfamilylist" component={ProductFamiliesList} />
-                ]);
-            }
-        }
-        return routerComp;
-    }
-}
-
-export default App;
-```
-
-This example is quite complex as it requires some knowledge of the source code. In future versions we'll provide a more easy way of doing this.
-
-3. Update `gui/src/Main.tsx` to use our custom `App` component. To do this I've imported the custom implementation of the `App` component and used this one inside the initial render
+Update `gui/src/Main.tsx` as followed.
 
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Services } from "@sdl/delivery-ish-dd-webapp-gui";
+import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
 import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
-import { IState } from "store/interfaces/State";
-import { configureStore } from "store/Store";
 import { Store } from "redux";
+import { Route } from "react-router";
 
 // Custom imports
-import App from "./custom-components/App";
+import "./custom-styles/skin-overwrites";
+import Home from "./custom-components/Home";
 
+const { App } = Components.AppComp;
 const { PageService, PublicationService, TaxonomyService } = Services.Client;
 const { localization} = Services.Common;
+const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
 const mainElement = document.getElementById("main-view-target");
 
@@ -143,12 +110,20 @@ const render = (AppComp: typeof App): void => {
     } else {
         ReactDOM.render(
             <Provider store={store}>
-                <AppComp services={services} history={browserHistory as ReactRouter.History} />
+                <AppComp services={services} history={browserHistory as ReactRouter.History}>
+                    <Route path="home" component={Home} />,
+                    <Route path="productfamilylist" component={ProductFamiliesList} />
+                </AppComp>
             </Provider>, mainElement);
     }
 };
 render(App);
 ```
+
+To do this we've added two extra `Route` components inside the `AppComp`. 
+One to use our custom `Home` for the `/home` url and one to show the `ProductFamiliesList` for the `/productfamilylist` url.
+
+We also imported `Route` from `react-router` and our custom `Home` component on the top of this example.
 
 ## Update GUI dev environment build script
 

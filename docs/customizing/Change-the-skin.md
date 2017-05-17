@@ -64,8 +64,7 @@ It's not allowed to remove any of the colors in this list, it's only allowed to 
 @accentColor6: #BB96B4;
 ```
 
-After applying these changes you can see that the UI colors changed. 
-There are still some things we need to optimize, for example the button collors were not updated. This will be fixed in the upcomming versions.
+After applying these changes you can see that the UI colors changed.
 
 ## Updating the company logo icon
 
@@ -83,6 +82,38 @@ I'm using a png image for this which I copied into a new `images` directory whic
     background-image: url("./images/batman-logo.png");
     height: 50px;
     background-repeat: no-repeat;
+}
+```
+
+## Updating some other icons
+
+We'll also update some icons for the toc and the search bar background image. 
+This is also done inside the `icons.less` file.
+
+```less
+.icon-breadcrumb-home() {
+    .icon-home();
+    background-repeat: no-repeat;
+    filter: grayscale(1);
+}
+
+.icon-toc-expand() {
+    .icon-plus-16x16-ico();
+    filter: grayscale(1);
+}
+
+.icon-toc-collapse() {
+    .icon-cross-16x16-ico();
+    filter: grayscale(1);
+}
+
+.icon-toc-leaf() {
+    .icon-dot-16x16-ico();
+    filter: grayscale(1);
+}
+
+.background-search-bar() {
+    background-color: @neutralColor5;
 }
 ```
 

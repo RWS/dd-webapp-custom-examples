@@ -31,9 +31,10 @@ module.exports = (isTest, isDebug) => {
                 // Custom theme
                 'theme-styles.less': path.resolve(__dirname, 'src/theming/styles.less'),
                 // Custom components overwrites
-                'components/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
-                '@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/presentation/Breadcrumbs':
-                    path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components/presentation/Breadcrumbs.js')
+                '@sdl/dd/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
+                // Components aliases
+                '@sdl/dd/base': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components'),
+                '@sdl/dd': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components')
             },
             modules: [
                 path.resolve(__dirname),
