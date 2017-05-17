@@ -20,6 +20,10 @@ Start [here](./docs/Getting-started.md).
 4. [Overwriting a GUI component](./docs/customizing/Overwriting-gui-component.md)
 5. [Extending the json api exposed by the DXA Ish Module](./docs/customizing/Extending-json-api.md)
 
+## Api examples
+
+1. [Filtering content using conditions](./docs/apis/Setting-conditions.md)
+
 ## Deploying your custom web application
 
 Start [here](./docs/Deploying-a-custom-web-app.md).
