@@ -78,13 +78,13 @@ In order to download some snaphot artifacts which are used by the archetype. We 
 ## Create a new project using the Maven Archetype
 
 First step we will need to do is to create a new directory.
-I've create following directory on my machine: `D:\projects\kc-web-app\custom-webapp-examples`. 
+I've create following directory on my machine: `D:\github\dd-webapp-custom-examples`. 
 I'll be usign this directory further on inside my examples.
 
 Ok Let's start by opening the command prompt and run:
 
 ```bash
-cd "D:\projects\kc-web-app\custom-webapp-examples"
+cd "D:\github\dd-webapp-custom-examples"
 mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.2.0"
 ```
 
@@ -117,12 +117,21 @@ package: org.company
  Y: : y
 ```
 
+## Building the project
+
+To buid the project run following command from the command line:
+
+```bash
+cd "D:\github\dd-webapp-custom-examples\custom-webapp"
+mvn clean install
+```
+
 ## Setting up IntelliJ IDEA development environment
 
 Next step I'll do is setting up IntelliJ IDEA for development.
 
 1. Launch IntelliJ
-2. Open the directory where you've created the archetype, in my case this is the `D:\projects\kc-web-app\custom-webapp-examples\custom-webapp` directory
+2. Open the directory where you've created the archetype, in my case this is the `D:\github\dd-webapp-custom-examples\custom-webapp` directory
 
 ### Setting up Content Delivery configuration
 
@@ -131,7 +140,47 @@ This file can be found at `src/main/resources/cd_client_conf.xml`.
 
 ![Setting up Content Delivery configuration](./images/cd-configuration.png)
 
-### Setting up Tomcat
+### Setting up Tomcat 
+
+I'll describe this for usage with the IntelliJ Ultimate Edition and the IntelliJ Community Edition (free). 
+You can find a comparison of both versions [here](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html).
+
+After this you are ready to start [customizing the application](../README.md).
+
+#### IntelliJ Community Edition
+
+There is no tight integration with Tomcat and IntelliJ Community Edition, therefore some manual actions are required.
+
+Install Tomcat plugin:
+
+1. Download [Tomcat runner plugin for IntelliJ](https://plugins.jetbrains.com/plugin/8266-tomcat-runner-plugin-for-intellij)
+2. Extract zip file inside plugins directory of IntelliJ installation (eg `C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.1.2\plugins`)
+3. Restart IntelliJ
+
+Start debugging:
+
+1. Start IntelliJ as an Administrator
+2. Click on the `Run` item in the top menu
+3. Open `Edit Configurations`
+4. Click on the `+` icon on the top left
+5. Click on `Tomcat Runner`
+
+![Add Tomcat Runner](./images/add-tomcat-runner-config.png)
+
+6. Define a name for the configuration, I'm using `Tomcat`
+7. Set path to Tomcat Location
+8. Add a context, I'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base. 
+9. Add a new Maven goal
+10. Fill in `clean install` inside the command line field
+
+![Maven goal configure](./images/maven-goal.png)
+
+11. Close the dialog by clicking the Ok button
+12. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
+
+#### IntelliJ Ultimate Edition
+
+If you have the paid version of IntelliJ there is already a Tomcat integration.
 
 In order to debug it I'll setup a configuration for Tomcat.
 
@@ -165,5 +214,3 @@ In order to debug it I'll setup a configuration for Tomcat.
 ![Final configuration](./images/final-config.png)
 
 14. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
-
-After this you are ready to start [customizing the application](../README.md).
