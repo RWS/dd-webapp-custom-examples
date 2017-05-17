@@ -171,10 +171,10 @@ Start debugging:
 7. Set path to Tomcat Location
 8. Add a context, I'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base. 
 9. Add a new Maven goal
-
-![Add maven goal](./images/add-maven-goal.png)
-
 10. Fill in `clean install` inside the command line field
+
+![Maven goal configure](./images/maven-goal.png)
+
 11. Close the dialog by clicking the Ok button
 12. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
 
