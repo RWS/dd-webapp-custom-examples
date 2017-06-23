@@ -137,7 +137,7 @@ In my example I'll change the font for the entire website to Arial.
 @fontFamily: "Arial";
 @fontHeaderFamily: "Arial";
 @fontFamilyPath: "./fonts/Calibri W01 Regular";
-@fontHeaderPath: "./fonts/Sommet Rounded W00 Regular";
+@fontHeaderPath: "./fonts/PT Sans";
 @fontFamilyFallback: "Comic Sans Ms";
 @fontSize: 14px;
 @fontColor: @neutralColor1;
