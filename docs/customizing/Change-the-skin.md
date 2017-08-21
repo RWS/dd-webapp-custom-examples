@@ -26,7 +26,7 @@ After installing the packages let's start up the server.
 npm start
 ```
 
-Any change I'll do inside the `gui` directory is now being picked up by the build. 
+Any change I'll do inside the `gui` directory is now being picked up by the build.
 
 ## Updating the color scheme
 
@@ -51,6 +51,16 @@ It's not allowed to remove any of the colors in this list, it's only allowed to 
 @neutralColor4: #576172;
 @neutralColor5: #7D8BAB;
 @neutralColor6: #fff;
+@neutralColor7: #2A3B4C; // Pickled Bluewood
+
+// this colors should be discussed with UX guys
+@neutralColor8: #292828; // Mine Shaft
+@neutralColor9: #CCCCCC; // Silver
+@neutralColor10: #999999; // Dusty Gray
+@neutralColor11: #000000; // Black
+
+// these are ok with UI Guys
+@neutralColor12: #0E121E; // Vulcan
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Accent Colors
@@ -62,6 +72,8 @@ It's not allowed to remove any of the colors in this list, it's only allowed to 
 @accentColor4: #FFCF43;
 @accentColor5: #F47F42;
 @accentColor6: #BB96B4;
+@accentColor7: #EB2C51; // Amaranth
+@accentColor8: #0096D6; // Cerulean
 ```
 
 After applying these changes you can see that the UI colors changed.
@@ -70,7 +82,7 @@ After applying these changes you can see that the UI colors changed.
 
 Updating the icons can be done by opening up the `icons.less` file which is located inside the `gui/src/theming/` directory.
 
-This file consist out of [mixins](http://lesscss.org/features/#mixins-feature). The only thing we are allowed to change are the internals of each mixin. 
+This file consist out of [mixins](http://lesscss.org/features/#mixins-feature). The only thing we are allowed to change are the internals of each mixin.
 It's not possible to rename them or change the input parameters. Same as for the colors the mixin names can be considered as an api for easier upgrades.
 
 To update the company logo seen on the top left of the application we'll change the contents of the `.icon-company-logo()` mixin.
@@ -87,7 +99,7 @@ I'm using a png image for this which I copied into a new `images` directory whic
 
 ## Updating some other icons
 
-We'll also update some icons for the toc and the search bar background image. 
+We'll also update some icons for the toc and the search bar background image.
 This is also done inside the `icons.less` file.
 
 ```less
@@ -157,10 +169,10 @@ In my example I'll change the font for the entire website to Arial.
 }
 ```
 
-Notice that I've also emptied the `.import-header-font()` and `.import-regular-font()` mixins. 
+Notice that I've also emptied the `.import-header-font()` and `.import-regular-font()` mixins.
 As we're not using a custom font these can be left blank.
 
 ## Advanced skinning changes
 
 The things are above can be seen as the more simple cases of doing custom skinning. To fine tune everything we'll need to do some more advanced changes.
-We'll handle this inside the [Advanced skin changes using css](./Advanced-skinning.md) topic. 
+We'll handle this inside the [Advanced skin changes using css](./Advanced-skinning.md) topic.

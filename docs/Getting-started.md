@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application from scratch. 
+Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application from scratch.
 We assume you are familiar with **TypeScript, JavaScript (ES6), Webpack, HTML, XML, React, LESS, CSS, Java, Spring, DXA and Maven**.
 
 Some learning material:
@@ -22,7 +22,7 @@ Some learning material:
 
 Make sure you have installed:
 
-* [Node.js](https://nodejs.org/) 
+* [Node.js](https://nodejs.org/)
   * 64 bit version is recommended
   * Install NodeJs v6.x or higher
 * [Maven 3](https://maven.apache.org/download.cgi)
@@ -78,17 +78,17 @@ In order to download some snaphot artifacts which are used by the archetype. We 
 ## Create a new project using the Maven Archetype
 
 First step we will need to do is to create a new directory.
-I've create following directory on my machine: `D:\github\dd-webapp-custom-examples`. 
+I've create following directory on my machine: `D:\github\dd-webapp-custom-examples`.
 I'll be usign this directory further on inside my examples.
 
 Ok Let's start by opening the command prompt and run:
 
 ```bash
 cd "D:\github\dd-webapp-custom-examples"
-mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=0.2.0"
+mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=1.0.0"
 ```
 
-Notice that I'm using version `0.2.0`, this is just an example. Advised is to use the latest available version.
+Notice that I'm using version `1.0.0`, this is just an example. Advised is to use the latest available version.
 I'll pick `org.company` as my group id and `custom-webapp` as the name of my artifact id.
 
 ```bash
@@ -140,9 +140,9 @@ This file can be found at `src/main/resources/cd_client_conf.xml`.
 
 ![Setting up Content Delivery configuration](./images/cd-configuration.png)
 
-### Setting up Tomcat 
+### Setting up Tomcat
 
-I'll describe this for usage with the IntelliJ Ultimate Edition and the IntelliJ Community Edition (free). 
+I'll describe this for usage with the IntelliJ Ultimate Edition and the IntelliJ Community Edition (free).
 You can find a comparison of both versions [here](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html).
 
 After this you are ready to start [customizing the application](../README.md).
@@ -169,7 +169,7 @@ Start debugging:
 
 6. Define a name for the configuration, I'm using `Tomcat`
 7. Set path to Tomcat Location
-8. Add a context, I'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base. 
+8. Add a context, I'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base.
 9. Add a new Maven goal
 10. Fill in `clean install` inside the command line field
 

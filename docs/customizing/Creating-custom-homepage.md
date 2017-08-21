@@ -15,7 +15,7 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 
 ## Creating a new component which we will use as our home page
 
-As a first step we'll create a new component called `Home`. 
+As a first step we'll create a new component called `Home`.
 
 1. Create a new directory called `custom-components` inside the `gui/src` directory
 2. Create a new file called `Home.tsx` in this directory
@@ -63,7 +63,7 @@ export default Home;
 
 ## Change the application routing to use our newly created page as the new home page
 
-In the previous step we've created a new component. Let's enable this component for the `/home` url. 
+In the previous step we've created a new component. Let's enable this component for the `/home` url.
 I'll also add routing for the `/productfamilylist` url where I'll use the `ProductFamiliesList` component.
 
 To do this we'll need to add some children to the `App` component which is owning the routing of the application on the gui.
@@ -74,7 +74,6 @@ Update `gui/src/Main.tsx` as followed.
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
-import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
 import { Store } from "redux";
 import { Route } from "react-router";
@@ -84,7 +83,7 @@ import "./custom-styles/skin-overwrites";
 import Home from "./custom-components/Home";
 
 const { App } = Components.AppComp;
-const { PageService, PublicationService, TaxonomyService } = Services.Client;
+const { PageService, PublicationService, TaxonomyService, SearchService } = Services.Client;
 const { localization} = Services.Common;
 const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
@@ -97,7 +96,8 @@ const services = {
     pageService: new PageService(),
     publicationService: new PublicationService(),
     localizationService: localization,
-    taxonomyService: new TaxonomyService()
+    taxonomyService: new TaxonomyService(),
+    searchService: new SearchService()
 };
 
 const store: Store<IState> = configureStore({});
@@ -110,7 +110,7 @@ const render = (AppComp: typeof App): void => {
     } else {
         ReactDOM.render(
             <Provider store={store}>
-                <AppComp services={services} history={browserHistory as ReactRouter.History}>
+                <AppComp services={services}>
                     <Route path="home" component={Home} />,
                     <Route path="productfamilylist" component={ProductFamiliesList} />
                 </AppComp>
@@ -120,7 +120,7 @@ const render = (AppComp: typeof App): void => {
 render(App);
 ```
 
-To do this we've added two extra `Route` components inside the `AppComp`. 
+To do this we've added two extra `Route` components inside the `AppComp`.
 One to use our custom `Home` for the `/home` url and one to show the `ProductFamiliesList` for the `/productfamilylist` url.
 
 We also imported `Route` from `react-router` and our custom `Home` component on the top of this example.
@@ -132,14 +132,16 @@ In order to have the GUI build working for the new route we need to change `gui/
 ```javascript
 // ...
 
-const publicationContentRegex = /^\/app\/[0-9]+.*$/gi; // All urls starting with a number
-const publicationsListContentRegex = /^\/app\/publications.*$/gi; // Publication list
-const productFamiliesContentRegex = /^\/app\/productfamilylist$/gi; // Custom product families page
-if (req.url.match(/^\/app(\/home(;jsessionid=[\w\d]+)?)?$/gi) ||
-    req.url.match(publicationContentRegex) ||
-    req.url.match(publicationsListContentRegex) ||
-    req.url.match(productFamiliesContentRegex)) {
-    req.url = '/index.html';
+const publicationContentRegex = /^\/[0-9]+.*$/gi; // All urls starting with a number
+const publicationsListContentRegex = /^\/publications.*$/gi;  // Publication list
+const productFamiliesContentRegex = /^\/productfamilylist$/gi; // Custom product families page
+if (
+  req.url.match(/^(\/home(;jsessionid=[\w\d]+)?)?$/gi) ||
+  req.url.match(publicationContentRegex) ||
+  req.url.match(publicationsListContentRegex) ||
+  req.url.match(productFamiliesContentRegex)
+) {
+  req.url = "/index.html";
 }
 
 // ...

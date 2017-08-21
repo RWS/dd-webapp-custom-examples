@@ -19,7 +19,7 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 ## Injecting a custom stylesheet file
 
 In order to some more advanced changes to the skin we'll create a new custom less file which we'll load as part of the application.
-This is considered to be more advanced and requires extra validation when upgrading you're application. 
+This is considered to be more advanced and requires extra validation when upgrading you're application.
 
 1. Create a new directory inside the `gui/src` directory called `custom-styles`
 2. Create a new less file called `skin-overwrites.less` inside this directory
@@ -29,7 +29,6 @@ This is considered to be more advanced and requires extra validation when upgrad
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
-import { browserHistory } from "react-router";
 import { Provider } from "react-redux";
 import { Store } from "redux";
 import { Route } from "react-router";
@@ -68,10 +67,10 @@ import "./custom-styles/skin-overwrites";
 
 ```
 
-The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the activity indicator, buttons and the tiles on the home page. 
+The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the activity indicator, buttons and the tiles on the home page.
 
-To get access to the mixins / variables defined inside the theming directory we've added an import on the top `@import (reference) "~theme-styles";`. 
+To get access to the mixins / variables defined inside the theming directory we've added an import on the top `@import (reference) "~theme-styles";`.
 This import can be used in any less file to get access to the theming api's.
 
-If you end up with a lot of customizations it makes sense to create different less files to have a better overview. 
+If you end up with a lot of customizations it makes sense to create different less files to have a better overview.
 For example a less file for the changes on the home page, one for the table of contents, etc...

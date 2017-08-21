@@ -84,11 +84,11 @@ export class Breadcrumbs extends BreadcrumbsBase {
 
 ```
 
-We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as it's location. 
+We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as it's location.
 The `@sdl/dd/base` prefix is to provide a way of still having access to the default implementation when overwriting the alias of a certain component.
 
-Overwriting the `render` method can be quite tricky as the react elements returned from the base are immutable and cannot be changed. 
-The only way is to create a new instance of the react elements. 
+Overwriting the `render` method can be quite tricky as the react elements returned from the base are immutable and cannot be changed.
+The only way is to create a new instance of the react elements.
 In this example we've called the base render to get the original items in the breadcrumbs. We then wrap this into a newly rendered component which we then return.
 
 **There is also a limitation when overwriting a component, it is not allowed to import from `@sdl/delivery-ish-dd-webapp-gui` as this would lead to an import with `undefined` as value.
@@ -103,7 +103,7 @@ To use the component we created in the previous step we'll need to change the we
 
 We'll add some extra configuration inside the `config > resolve > alias` configuration.
 
-Put the custom overwrite after the `// Custom components overwrites` comment and before the `// Components aliases` comment. 
+Put the custom overwrite after the `// Custom components overwrites` comment.
 This is important as the sequence is used to resolve dependencies in a certain order.
 
 ```javascript
@@ -112,16 +112,25 @@ const config = {
     resolve: {
         // ...
         alias: {
-            React: 'react',
-            ReactDOM: 'react-dom',
-            ReactDOMServer: 'react-dom/server',
-            // Custom theme
-            'theme-styles.less': path.resolve(__dirname, 'src/theming/styles.less'),
-            // Custom components overwrites
-            '@sdl/dd/presentation/Breadcrumbs': path.resolve(__dirname, 'src/custom-components/Breadcrumbs.tsx'),
-            // Components aliases
-            '@sdl/dd/base': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components'),
-            '@sdl/dd': path.resolve(__dirname, 'node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components')
+          React: "react",
+          ReactDOM: "react-dom",
+          ReactDOMServer: "react-dom/server",
+          // Custom theme
+          "theme-styles.less": path.resolve(
+            __dirname,
+            "./src/theming/styles.less"
+          ),
+          // Components aliases
+          "@sdl/dd/base": path.resolve(
+            __dirname,
+            "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
+          ),
+          "@sdl/dd": path.resolve(
+            __dirname,
+            "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
+          ),
+          // Custom components overwrites
+          "@sdl/dd/presentation/Breadcrumbs": path.resolve(__dirname, "./src/custom-components/Breadcrumbs.tsx")
         },
         // ...
     },
