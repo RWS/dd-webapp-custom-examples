@@ -17,6 +17,7 @@ Start [here](./docs/Getting-started.md).
 3. [Creating a custom home page](./docs/customizing/Creating-custom-homepage.md)
 4. [Overwriting a GUI component](./docs/customizing/Overwriting-gui-component.md)
 5. [Extending the json api exposed by the DXA Ish Module](./docs/customizing/Extending-json-api.md)
+5. [Adding new language](./docs/customizing/Adding-language.md)
 
 ## Api examples
 
