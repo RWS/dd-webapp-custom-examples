@@ -18,7 +18,7 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 ## Creating a new language resources file
 
 In this tutorial I'll add new language.
-I'll be using the url I've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
+I'll be using the URL I've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
 
 1. Create a new .resjson file inside the `src/resources` directory called `resources.es.resjson`
 
