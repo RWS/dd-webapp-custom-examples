@@ -26,7 +26,8 @@ Start [here](./docs/Getting-started.md).
 ## Architecture overview
 
 1. [ISH Module](./docs/architecture/ISH-module.md)
-1. [ISH UGC Module](./docs/architecture/ISH-UGC-module.md)
+2. [ISH UGC Module](./docs/architecture/ISH-UGC-module.md)
+2. [ISH Search Module](./docs/architecture/ISH-Search-module.md)
 
 ## Deploying your custom web application
 
