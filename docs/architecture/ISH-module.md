@@ -1,7 +1,7 @@
 # ISH module exposes REST API for content retrieval
 
 | URL, Class and method  | Description  | Errors |
-| :---: | :---: | :---: |
+| :--- | :--- | :--- |
 | <nobr>URL: <b>/api/page/{publicationId}/{pageId}/**</b></nobr><br><nobr>Class: <b>IshController</b></nobr> <br><nobr>Method: <b>getPage</b></nobr> | Gets page in JSON format to let UI render it using capabilities of React. {publicationId} and {pageId} are parameters put in URL. <br> PageModel class from DXA is used to build JSON response. <br>It checks whether publication is online then actually fetches page. | <ul><li>Response "Unable to find publication {publicaionId}" will be returned when wrong publicationId was specified. <li>"Page not found..." is returned as response when wrong pageId was specified.</ul> |
 | <nobr>URL: <b>/binary/{publicationId}/{binaryId}/**</b></nobr><br><nobr>Class: <b>IshController</b></nobr> <br><nobr>Method: <b>getBinaryResource</b></nobr> | Used to get binary data such as images, video, etc for {publicationId} and {binaryId} URL parameters. Performs check whether publication online before fetching binary data. | Response with 404 page will return in case if resource could not be found (wrong publication Id, binary Id or any other reason) |
 | <nobr>URL: <b>/api/publications</b></nobr><br><nobr>Class: <b>IshController</b></nobr> <br><nobr>Method: <b>getPublicationList</b></nobr> | Gets list of available online publications. | No specific errors can occur. |
