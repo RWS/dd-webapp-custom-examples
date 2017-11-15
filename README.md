@@ -23,6 +23,11 @@ Start [here](./docs/Getting-started.md).
 
 1. [Filtering content using conditions](./docs/apis/Setting-conditions.md)
 
+## Architecture overview
+
+1. [ISH Module](./docs/architecture/ISH-module.md)
+1. [ISH UGC Module](./docs/architecture/ISH-UGC-module.md)
+
 ## Deploying your custom web application
 
 Start [here](./docs/Deploying-a-custom-web-app.md).
