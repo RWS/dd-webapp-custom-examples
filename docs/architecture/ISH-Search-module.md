@@ -1,0 +1,5 @@
+# ISH Search module exposes REST API for operations related to search
+
+| URL, Class and method  | Description  | Errors |
+| :-- | :-- | :-- |
+| <nobr>URL: <b>/api/search</b></nobr><br><nobr>Class: <b>SearchController</b></nobr> <br><nobr>Method: <b>search</b></nobr> | Performs search passed in body parameters as JSON: <br> ```{"PublicationId":null, "Language":"en", "SearchQuery":"integration", "StartIndex":0}```<br> <ul><li>PublicationId field should be null in case if search should be performed in all publications, otherwise publication Id should be passed<li>Language field should have value which reflects language in which search should be performed <li>SearchQuery is text which we`re searching for <li> StartIndex is paging attribute which means how many first search results we are skipping. For example, So 11 means that 11 search results will be skipped and results will start only from 12th found item. </ul> | 405 code will be returned in case if wrong parameters was specified. |
