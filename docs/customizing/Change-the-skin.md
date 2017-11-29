@@ -28,6 +28,40 @@ npm start
 
 Any change I'll do inside the `gui` directory is now being picked up by the build.
 
+## Edit webpack.config.js
+Find and change following peace of code:
+```js
+// Custom theme
+"theme-styles": path.resolve(
+    __dirname,
+    "node_modules/@sdl/delivery-ish-dd-webapp-gui/src/theming/styles.less"
+),
+// Custom components overwrites
+// ...
+// Components aliases
+"@sdl/dd/base": path.resolve(
+    __dirname,
+    "./src/theming/styles.less"
+),
+```
+to 
+```js
+// Custom theme
+"theme-styles": path.resolve(
+    __dirname,
+    "./src/theming/styles.less"
+),
+// Components aliases
+"@sdl/dd/base": path.resolve(
+    __dirname,
+    "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
+),
+"@sdl/dd": path.resolve(
+    __dirname,
+    "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
+)
+```
+
 ## Updating the color scheme
 
 Updating the color scheme can be done by opening up the `colors.less` file which is located inside the `gui/src/theming/` directory.

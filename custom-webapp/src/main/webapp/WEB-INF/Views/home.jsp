@@ -26,6 +26,7 @@
 <script type="text/javascript">
     // Define root path
     window.SdlDitaDeliveryRootPath = "${fn:escapeXml(pageContext.request.contextPath)}";
+    window.SdlDitaDeliveryCommentingIsEnabled = ${pageContext.request.getAttribute("activeFeatures").contains("commenting")};
 </script>
 <script type="text/javascript" src="https://unpkg.com/react@<%=reactVersion%>/dist/react.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/react-dom@<%=reactVersion%>/dist/react-dom.min.js"></script>

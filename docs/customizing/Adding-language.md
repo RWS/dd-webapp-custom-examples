@@ -37,7 +37,7 @@ And add translations in Spanish language [Disclaimer: translations in example ar
 
 We need to update the localization service to use a new Language.
 
-2. Create a new service file inside the `src/custom-services` directory called `Localization Service.ts`
+2. Create a new service file inside the directory `src/custom-services` called `LocalizationService.ts`
 
 ```typescript
 import { String } from "@sdl/models";
