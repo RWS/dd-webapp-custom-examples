@@ -36,7 +36,7 @@ module.exports = (isTest, isDebug) => {
         ReactDOM: "react-dom",
         ReactDOMServer: "react-dom/server",
         // Custom theme
-        "theme-styles.less": path.resolve(
+        "theme-styles": path.resolve(
           __dirname,
           "./src/theming/styles.less"
         ),
@@ -50,7 +50,15 @@ module.exports = (isTest, isDebug) => {
           "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
         ),
         // Custom components overwrites
-        "@sdl/dd/presentation/Breadcrumbs": path.resolve(__dirname, "./src/custom-components/Breadcrumbs.tsx")
+        "@sdl/dd/presentation/Breadcrumbs": path.resolve(__dirname, "./src/custom-components/Breadcrumbs.tsx"),
+
+        // Section to resolve base class for services
+        "@custom-sdl/dd/base/services": path.resolve(__dirname, "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/services"),
+        // Additional languages resolver
+        "resources.es.resjson": path.resolve(__dirname, "./src/resources/resources.es.resjson"),
+
+        // Section to resolve localization service
+        "services/common/LocalizationService": path.resolve(__dirname, "./src/custom-services/LocalizationService.ts")
       },
       modules: [
         path.resolve(__dirname),
