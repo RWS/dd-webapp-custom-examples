@@ -40,6 +40,8 @@ module.exports = (isTest, isDebug) => {
           __dirname,
           "./src/theming/styles.less"
         ),
+        // Custom components overwrites
+        // ...
         // Components aliases
         "@sdl/dd/base": path.resolve(
           __dirname,
@@ -49,16 +51,17 @@ module.exports = (isTest, isDebug) => {
           __dirname,
           "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/components"
         ),
-        // Custom components overwrites
-        "@sdl/dd/presentation/Breadcrumbs": path.resolve(__dirname, "./src/custom-components/Breadcrumbs.tsx"),
+         // Custom components overwrites
+         "@sdl/dd/presentation/Breadcrumbs": path.resolve(__dirname, "./src/custom-components/Breadcrumbs.tsx"),
 
-        // Section to resolve base class for services
-        "@custom-sdl/dd/base/services": path.resolve(__dirname, "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/services"),
-        // Additional languages resolver
-        "resources.es.resjson": path.resolve(__dirname, "./src/resources/resources.es.resjson"),
+          // Section to resolve base class for services
+          "@custom-sdl/dd/base/services": path.resolve(__dirname, "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/lib/services"),
+          // Additional languages resolver
+          "resources.es.resjson": path.resolve(__dirname, "./src/resources/resources.es.resjson"),
 
-        // Section to resolve localization service
-        "services/common/LocalizationService": path.resolve(__dirname, "./src/custom-services/LocalizationService.ts")
+          // Section to resolve localization service
+          "services/common/LocalizationService": path.resolve(__dirname, "./src/custom-services/LocalizationService.ts")
+
       },
       modules: [
         path.resolve(__dirname),

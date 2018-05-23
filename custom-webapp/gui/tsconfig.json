@@ -7,8 +7,8 @@
         "node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/*"
       ],
       /* Components */
-      "@custom-sdl/dd/base/services/*": ["node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/services/*"],
       "@sdl/dd/base/*": ["node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/*"],
+      "@custom-sdl/dd/base/services/*": ["node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/services/*"],
       "@sdl/dd/*": ["node_modules/@sdl/delivery-ish-dd-webapp-gui/dist/typings/src/components/*"]
     },
     "module": "es2015",

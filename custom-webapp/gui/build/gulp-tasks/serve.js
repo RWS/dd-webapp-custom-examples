@@ -89,7 +89,7 @@ module.exports = function(buildOptions, gulp, browserSync) {
           ) {
             req.url = "/index.html";
           }
-
+          
           next();
         }
       ]

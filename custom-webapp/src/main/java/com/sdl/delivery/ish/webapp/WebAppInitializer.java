@@ -33,7 +33,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
         log.debug("Initializing servlet application context");
         AnnotationConfigWebApplicationContext servletAppContext = new AnnotationConfigWebApplicationContext();
 
-        // Custom spring configuration is added to the end
         servletAppContext.register(SpringInitializer.class, PageController.class, Initializer.class);
 
         log.debug("Registering Spring ContextLoaderListener");
