@@ -1,4 +1,5 @@
 # Creating a custom home page
+>**Note: This part of customization example is currently not working. Will be fixed soon**
 
 In this tutorial we'll update the application to use a customized home page.
 

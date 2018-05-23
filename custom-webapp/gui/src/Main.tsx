@@ -3,16 +3,13 @@ import * as ReactDOM from "react-dom";
 import { Components, Services, IState, configureStore } from "@sdl/delivery-ish-dd-webapp-gui";
 import { Provider } from "react-redux";
 import { Store } from "redux";
-import { Route } from "react-router";
 
 // Custom imports
 import "./custom-styles/skin-overwrites";
-import Home from "./custom-components/Home";
 
 const { App } = Components.AppComp;
 const { PageService, PublicationService, TaxonomyService, SearchService } = Services.Client;
 const { localization} = Services.Common;
-const { ProductFamiliesList } = Components.ProductFamiliesListComp;
 
 const mainElement = document.getElementById("main-view-target");
 
@@ -38,8 +35,6 @@ const render = (AppComp: typeof App): void => {
         ReactDOM.render(
             <Provider store={store}>
                 <AppComp services={services}>
-                    <Route path="home" component={Home} />,
-                    <Route path="productfamilylist" component={ProductFamiliesList} />
                 </AppComp>
             </Provider>, mainElement);
     }
