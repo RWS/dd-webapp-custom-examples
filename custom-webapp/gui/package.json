@@ -11,6 +11,7 @@
     "@sdl/icons": "~1.1.0-16",
     "@types/react": "^15.0.27",
     "@types/react-dom": "^15.5.0",
+    "@types/prop-types": "15.5.1",
     "@types/react-redux": "^4.4.47",
     "es6-promise": "~4.1.1",
     "async": "~2.5.0",
