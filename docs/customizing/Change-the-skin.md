@@ -2,9 +2,9 @@
 
 In this tutorial we'll update the application skin using the Theming capabilities.
 
-I'll be using Visual Studio Code as my editor and will use the lightweight setup using a fake backend with mock data.
+We'll be using Visual Studio Code as our editor and will use the lightweight setup using a fake backend with mock data.
 
-> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
+> You can find the code for this tutorial [here](../../custom-webapp/gui/src)
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ I'll be using Visual Studio Code as my editor and will use the lightweight setup
 
 ## Starting the application in debug mode
 
-Before I can start let's install all npm packages by running following command in the terminal:
+Before you start, install all npm packages by running the following command in the terminal:
 
 ```bash
 cd gui
@@ -26,10 +26,10 @@ After installing the packages let's start up the server.
 npm start
 ```
 
-Any change I'll do inside the `gui` directory is now being picked up by the build.
+Any change we do inside the `gui` directory is now being picked up by the build.
 
 ## Edit webpack.config.js
-Find and change following peace of code:
+Find and change the following piece of code:
 ```js
 // Custom theme
 "theme-styles": path.resolve(
@@ -66,9 +66,9 @@ to
 
 Updating the color scheme can be done by opening up the `colors.less` file which is located inside the `gui/src/theming/` directory.
 
-In here you can find a set of neutral and accent colors defined. Let's change this to.
+In here you can find a set of neutral and accent colors defined. Let's change this too.
 
-It's not allowed to remove any of the colors in this list, it's only allowed to change the values of each variable. The  variable names can be considered as an api which allows you to easily upgrade your changes into the next version.
+It's not allowed to remove any of the colors in this list, it's only allowed to change the values of each variable. The  variable names can be considered as an API which allows you to easily upgrade your changes into the next version.
 
 ```less
 // ---------------------------------------------------------------------------------------------------------------------
@@ -116,12 +116,12 @@ After applying these changes you can see that the UI colors changed.
 
 Updating the icons can be done by opening up the `icons.less` file which is located inside the `gui/src/theming/` directory.
 
-This file consist out of [mixins](http://lesscss.org/features/#mixins-feature). The only thing we are allowed to change are the internals of each mixin.
-It's not possible to rename them or change the input parameters. Same as for the colors the mixin names can be considered as an api for easier upgrades.
+This file consist of [mixins](http://lesscss.org/features/#mixins-feature). The only thing we are allowed to change are the internals of each mixin.
+It is not possible to rename them or change the input parameters. Like for the colors, the mixin names can be considered as an API for easier upgrades.
 
 To update the company logo seen on the top left of the application we'll change the contents of the `.icon-company-logo()` mixin.
 
-I'm using a png image for this which I copied into a new `images` directory which I've created inside the `theming` directory.
+We're using a PNG image for this. We copied it into a new `images` directory that we've created inside the `theming` directory.
 
 ```less
 .icon-company-logo() {
@@ -133,7 +133,7 @@ I'm using a png image for this which I copied into a new `images` directory whic
 
 ## Updating some other icons
 
-We'll also update some icons for the toc and the search bar background image.
+We'll also update some icons for the table of contents, as well as the search bar background image.
 This is also done inside the `icons.less` file.
 
 ```less
@@ -171,7 +171,7 @@ By default there are 2 different fonts used. A font for the headers and one for 
 
 It's possible to either import a custom font or use a standard font.
 
-In my example I'll change the font for the entire website to Arial.
+In our example we change the font for the entire website to Arial.
 
 ```less
 @import (reference) "colors.less";
@@ -203,10 +203,10 @@ In my example I'll change the font for the entire website to Arial.
 }
 ```
 
-Notice that I've also emptied the `.import-header-font()` and `.import-regular-font()` mixins.
-As we're not using a custom font these can be left blank.
+Notice that we've also emptied the `.import-header-font()` and `.import-regular-font()` mixins.
+As we're not using a custom font, these can be left blank.
 
 ## Advanced skinning changes
 
-The things are above can be seen as the more simple cases of doing custom skinning. To fine tune everything we'll need to do some more advanced changes.
+The changes above can be considered as simple cases of custom skinning. To fine-tune everything we'll need to do some more advanced changes.
 We'll handle this inside the [Advanced skin changes using css](./Advanced-skinning.md) topic.
