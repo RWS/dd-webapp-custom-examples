@@ -160,10 +160,10 @@ Install Tomcat plugin:
 Start debugging:
 
 1. Start IntelliJ as an Administrator
-2. Click on the `Run` item in the top menu
+2. Select the `Run` item in the top menu
 3. Open `Edit Configurations`
-4. Click on the `+` icon on the top left
-5. Click on `Tomcat Runner`
+4. Select the `+` icon on the top left
+5. Select `Tomcat Runner`
 
 ![Add Tomcat Runner](./images/add-tomcat-runner-config.png)
 
@@ -176,7 +176,7 @@ Start debugging:
 ![Maven goal configure](./images/maven-goal.png)
 
 11. Close the dialog by clicking the Ok button
-12. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
+12. Start the custom web application by selecting `Run` -> `Debug 'Tomcat'`
 
 #### IntelliJ Ultimate Edition
 
@@ -184,10 +184,10 @@ If you have the paid version of IntelliJ there is already a Tomcat integration.
 
 In order to debug it we'll setup a configuration for Tomcat.
 
-1. Click on the `Run` item in the top menu
+1. Select the `Run` item in the top menu
 2. Open `Edit Configurations`
-3. Click on the `+` icon on the top left
-4. Go to `Tomcat Server` and click on `Local`
+3. Select the `+` icon on the top left
+4. Go to `Tomcat Server` and select `Local`
 
 ![Add Tomcat](./images/add-tomcat-config.png)
 
@@ -201,16 +201,16 @@ In order to debug it we'll setup a configuration for Tomcat.
 
 ![Maven goal configure](./images/maven-goal.png)
 
-9. Click Ok
+9. Select Ok
 
 10. Open the `deployment` tab
-11. Click on the `+` icon next to the `Deploy at server startup` list
+11. Select the `+` icon next to the `Deploy at server startup` list
 
 ![Add war file deployment](./images/add-deployment-war.png)
 
 12. Select the exploded war file
-13. Close the dialog by clicking the Ok button
+13. Close the dialog by selecting the Ok button
 
 ![Final configuration](./images/final-config.png)
 
-14. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
+14. Start the custom web application by selecting `Run` -> `Debug 'Tomcat'`
