@@ -1,8 +1,8 @@
 # Adding new language
 
-In this tutorial we'll add new language to the application to be used in App.
+In this tutorial we'll add a new language to be used in Reference Implementation.
 
-> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
+> You can find the code for this tutorial [here](../../custom-webapp/gui/src)
 
 ## Prerequisites
 
@@ -17,12 +17,12 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 
 ## Creating a new language resources file
 
-In this tutorial I'll add new language.
-I'll be using the URL I've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
+In this tutorial we'll add a new language.
+We'll be using the URL we've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
 
 1. Create a new .resjson file inside the `src/resources` directory called `resources.es.resjson`
 
-And add translations in Spanish language [Disclaimer: translations in example are taken from automated translation tool, and might be incorect and funnty for native speakers]
+Add translations in Spanish language [Disclaimer: translations in the example are taken from an automated translation tool, and might be incorect for native speakers]
 ```json
 {
     //...
@@ -33,9 +33,9 @@ And add translations in Spanish language [Disclaimer: translations in example ar
 }
 ```
 
-## Creating a custom Localization Service
+## Creating a custom localization Service
 
-We need to update the localization service to use a new Language.
+We need to update the localization service to use a new language.
 
 2. Create a new service file inside the directory `src/custom-services` called `LocalizationService.ts`
 
@@ -92,12 +92,12 @@ export class LocalizationService extends LocalizationServiceBase {
 export let localization = new LocalizationService();
 ```
 
-We have imported the default Localization Service implementation using `@custom-sdl/dd/base/services/common/LocalizationService` as it's location.
+We have imported the default Localization Service implementation using `@custom-sdl/dd/base/services/common/LocalizationService` as its location.
 The `@custom-sdl/dd` prefix is to provide a way of still having access to the default implementation when overwriting the alias of a certain component.
 
-We did also overwrite the `formatMessage` method, to check new language first, and if it is selected, use the resources from it.
+We did also overwrite the `formatMessage` method, to check the new language first, and use the resources from it if it is selected.
 
-**Note The `@custom-sdl/dd` prefix we used, to be able to run the instance in debug mode, we have to also modify `tsconfig.json` file adding the following section into   `compilerOptions > paths` to resolve this resources:**
+**Note the `@custom-sdl/dd` prefix that we used. To be able to run the instance in debug mode, we have to also modify `tsconfig.json` file, adding the following section into `compilerOptions > paths` to resolve this resource:**
 ```json
     // ...
     "paths": {
@@ -157,4 +157,4 @@ const config = {
 }
 ```
 
-In order for these change to take effect you'll need to stop your dev server and restart it using `npm start`.
+In order for these changes to take effect, you need to stop your dev server and restart it using `npm start`.

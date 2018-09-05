@@ -1,10 +1,10 @@
 # Overwriting a GUI component
 
-In this tutorial we'll update the application to be using an overwritten GUI component.
+In this tutorial we'll update the application so it uses an overwritten GUI component.
 
-The entire GUI exists out of components, a component is a reusable piece within the UI which can be used in one or many places on the screen.
+The entire GUI is made out of components. A component is a reusable piece within the UI that can be used in one or many places on the screen.
 
-> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
+> You can find the code for this tutorial [here](../../custom-webapp/gui/src)
 
 ## Prerequisites
 
@@ -18,8 +18,8 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 
 ## Creating a custom breadcrumbs component
 
-In this tutorial I'll update the breadcrumbs to use a custom url for the home page.
-I'll be using the url I've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
+In this tutorial we'll update the breadcrumbs to use a custom URL for the home page.
+We'll be using the URL we've created in the [Creating a custom home page](./Creating-custom-homepage.md) tutorial.
 
 1. Create a new component file inside the `src/custom-components` directory called `Breadcrumbs.tsx`
 
@@ -84,7 +84,7 @@ export class Breadcrumbs extends BreadcrumbsBase {
 
 ```
 
-We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as it's location.
+We've imported the default BreadCrumbs implementation using `@sdl/dd/base/presentation/Breadcrumbs` as its location.
 The `@sdl/dd/base` prefix is to provide a way of still having access to the default implementation when overwriting the alias of a certain component.
 
 Overwriting the `render` method can be quite tricky as the react elements returned from the base are immutable and cannot be changed.
@@ -94,12 +94,12 @@ In this example we've called the base render to get the original items in the br
 **There is also a limitation when overwriting a component, it is not allowed to import from `@sdl/delivery-ish-dd-webapp-gui` as this would lead to an import with `undefined` as value.
 This is because we're overwriting the internal build process of the package `@sdl/delivery-ish-dd-webapp-gui` itself.**
 
-For this to work we'll need to change some configuration inside our webpack file, we'll handle this in the next section.
-To get an understanding of how the component is working have a look at the source file which is packaged with the npm package.
+For this to work we need to change some configuration inside our webpack file. We'll handle this in the next section.
+To get an understanding of how the component is working, have a look at the source file packaged with the npm package.
 
 ## Overwriting the default breadcrumbs implementation
 
-To use the component we created in the previous step we'll need to change the webpack configuration which can be found inside `src/webpack.config.js`.
+To use the component we created in the previous step we need to change the webpack configuration that can be found inside `src/webpack.config.js`.
 
 We'll add some extra configuration inside the `config > resolve > alias` configuration.
 

@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to the new Content Delivery Web Application! This tutorial will take you through creating a custom application from scratch.
+Welcome to Reference Implementation, the new Content Delivery web application! This tutorial will take you through creating a custom application from scratch.
 We assume you are familiar with **TypeScript, JavaScript (ES6), Webpack, HTML, XML, React, LESS, CSS, Java, Spring, DXA and Maven**.
 
 Some learning material:
@@ -37,7 +37,7 @@ Make sure you have installed:
   * ...
 * A Content Delivery environment with data
 
-In the following guide I'm using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
+In the following guide we're using IntelliJ IDEA Ultimate (for Java) and Visual Studio Code (for LESS / TypeScript / JavaScript).
 
 > You can find the result of this guide [here](../custom-webapp/)
 
@@ -77,9 +77,9 @@ In order to download some snaphot artifacts which are used by the archetype. We 
 
 ## Create a new project using the Maven Archetype
 
-First step we will need to do is to create a new directory.
-I've create following directory on my machine: `D:\github\dd-webapp-custom-examples`.
-I'll be usign this directory further on inside my examples.
+First step you will need to do is to create a new directory.
+We've created the following directory on our machine: `D:\github\dd-webapp-custom-examples`.
+We'll be usign this directory further on in the examples.
 
 Ok Let's start by opening the command prompt and run:
 
@@ -88,8 +88,8 @@ cd "D:\github\dd-webapp-custom-examples"
 mvn archetype:generate "-DarchetypeArtifactId=dd-webapp-archetype" "-DarchetypeGroupId=com.sdl.delivery.ish" "-DarchetypeVersion=1.2.0"
 ```
 
-Notice that I'm using version `1.2.0`, this is just an example. Advised is to use the latest available version.
-I'll pick `org.company` as my group id and `custom-webapp` as the name of my artifact id.
+Notice that we are using version `1.2.0`, this is just an example. We advise you to use the latest available version.
+We'll pick `org.company` as our group ID and `custom-webapp` as the name of our artifact ID.
 
 ```bash
 [INFO] Scanning for projects...
@@ -119,7 +119,7 @@ package: org.company
 
 ## Building the project
 
-To buid the project run following command from the command line:
+To buid the project, run the following command from the command line:
 
 ```bash
 cd "D:\github\dd-webapp-custom-examples\custom-webapp"
@@ -128,21 +128,21 @@ mvn clean install
 
 ## Setting up IntelliJ IDEA development environment
 
-Next step I'll do is setting up IntelliJ IDEA for development.
+Next step, we set up IntelliJ IDEA for development:
 
 1. Launch IntelliJ
-2. Open the directory where you've created the archetype, in my case this is the `D:\github\dd-webapp-custom-examples\custom-webapp` directory
+2. Open the directory where you've created the archetype, in our case this is the `D:\github\dd-webapp-custom-examples\custom-webapp` directory
 
 ### Setting up Content Delivery configuration
 
-First step is to add the necessary configuration inside the `cd_client_config.xml` file. We'll need to provide the location of the discovery service, the client id and client secret of the Content Delivery system we are using.
-This file can be found at `src/main/resources/cd_client_conf.xml`.
+First step is to add the necessary configuration inside the `cd_client_config.xml` file, located at `src/main/resources/cd_client_conf.xml`. We need to provide the location of the discovery service, the client ID and the client secret of the Content Delivery system we are using.
+
 
 ![Setting up Content Delivery configuration](./images/cd-configuration.png)
 
 ### Setting up Tomcat
 
-I'll describe this for usage with the IntelliJ Ultimate Edition and the IntelliJ Community Edition (free).
+We'll describe this for usage with the IntelliJ Ultimate Edition and the IntelliJ Community Edition (free).
 You can find a comparison of both versions [here](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html).
 
 After this you are ready to start [customizing the application](../README.md).
@@ -160,38 +160,38 @@ Install Tomcat plugin:
 Start debugging:
 
 1. Start IntelliJ as an Administrator
-2. Click on the `Run` item in the top menu
+2. Select the `Run` item in the top menu
 3. Open `Edit Configurations`
-4. Click on the `+` icon on the top left
-5. Click on `Tomcat Runner`
+4. Select the `+` icon on the top left
+5. Select `Tomcat Runner`
 
 ![Add Tomcat Runner](./images/add-tomcat-runner-config.png)
 
-6. Define a name for the configuration, I'm using `Tomcat`
+6. Define a name for the configuration, we're using `Tomcat`
 7. Set path to Tomcat Location
-8. Add a context, I'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base.
+8. Add a context, we'll be using `/web-app` as path and `D:\github\dd-webapp-custom-examples\custom-webapp\target\custom-webapp-1.0-SNAPSHOT` as the Document Base.
 9. Add a new Maven goal
 10. Fill in `clean install` inside the command line field
 
 ![Maven goal configure](./images/maven-goal.png)
 
 11. Close the dialog by clicking the Ok button
-12. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
+12. Start the custom web application by selecting `Run` -> `Debug 'Tomcat'`
 
 #### IntelliJ Ultimate Edition
 
 If you have the paid version of IntelliJ there is already a Tomcat integration.
 
-In order to debug it I'll setup a configuration for Tomcat.
+In order to debug it we'll setup a configuration for Tomcat.
 
-1. Click on the `Run` item in the top menu
+1. Select the `Run` item in the top menu
 2. Open `Edit Configurations`
-3. Click on the `+` icon on the top left
-4. Go to `Tomcat Server` and click on `Local`
+3. Select the `+` icon on the top left
+4. Go to `Tomcat Server` and select `Local`
 
 ![Add Tomcat](./images/add-tomcat-config.png)
 
-5. Define a name for the configuration, I'm using `Tomcat`
+5. Define a name for the configuration, we're using `Tomcat`
 6. Remove all task from the list at the bottom of the dialog
 7. Add a new Maven goal
 
@@ -201,16 +201,16 @@ In order to debug it I'll setup a configuration for Tomcat.
 
 ![Maven goal configure](./images/maven-goal.png)
 
-9. Click Ok
+9. Select Ok
 
 10. Open the `deployment` tab
-11. Click on the `+` icon next to the `Deploy at server startup` list
+11. Select the `+` icon next to the `Deploy at server startup` list
 
 ![Add war file deployment](./images/add-deployment-war.png)
 
 12. Select the exploded war file
-13. Close the dialog by clicking the Ok button
+13. Close the dialog by selecting the Ok button
 
 ![Final configuration](./images/final-config.png)
 
-14. Start the custom web application by clicking on `Run` -> `Debug 'Tomcat'`
+14. Start the custom web application by selecting `Run` -> `Debug 'Tomcat'`

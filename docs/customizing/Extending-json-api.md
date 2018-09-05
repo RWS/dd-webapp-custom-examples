@@ -1,8 +1,8 @@
-# Extending the json api exposed by the DXA Ish Module
+# Extending the json API exposed by the DXA Ish Module
 
-In this tutorial we'll update the DXA Ish Module json api.
+In this tutorial we'll update the DXA Ish Module json API.
 
-I'll be using IntelliJ as my IDE.
+We'll be using IntelliJ as our IDE.
 
 > You can find the code of this tutorial [here](../../custom-webapp/gui/src)
 
@@ -17,15 +17,15 @@ Complete the [getting started guide](../Getting-started.md) and do `Run` -> `Deb
 
 ## Adding Spring initialize class
 
-In order for the classes to be loaded we'll need to create a Spring initializer class first.
+In order for the classes to be loaded you need to create a Spring initializer class first.
 
 This step is described inside the [Creating a custom home page](./Creating-custom-homepage.md#add-a-new-controller-to-the-java-backend) tutorial.
 
-## Adding extra metadata to the page api
+## Adding extra metadata to the page API
 
 In this example we'll add some dummy field into the page metadata.
 
-The only step is to create a new class called `CustomContentService` (`src/main/java/org/company/providers/CustomContentService.java`) with following code inside.
+The only step is to create a new class called `CustomContentService` (`src/main/java/org/company/providers/CustomContentService.java`) with the following code inside:
 
 ```java
 package org.company.providers;
@@ -62,15 +62,14 @@ public class CustomContentService extends ContentService {
 }
 ```
 
-The `@Primary` annotation is used to overwrite the default `ContentService` implementation. 
-This way we can override the data which is returned from the controllers. 
+The `@Primary` annotation is used to overwrite the default `ContentService` implementation.  This way we can override the data which is returned from the controllers. 
 The Content Service also allows you to overwite the binary data (images, pdf...) using the `getBinaryContent` method.
 
-## Adding extra metadata to the toc api
+## Adding extra metadata to the table of contents (TOC) API
 
-It's also possible to add custom metadata to the toc api. 
-In this example I'll add a dummy property called `CustomMetadata` to all the item in the toc api response.
-The toc has a nested structure so it comes with a couple of challenges.
+It is also possible to add custom metadata to the TOC's API. 
+In this example we'll add a dummy property called `CustomMetadata` to all the item in the TOC API response.
+The TOC has a nested structure, so it comes with a couple of challenges.
 
 1. Create a new model called `CustomTaxonomyNode` (`src/main/java/org/company/models/CustomTaxonomyNode.java`)
 
@@ -170,7 +169,5 @@ public class CustomTocService extends TocService {
 ```
 
 The `@Primary` annotation is used to overwrite the default `TocService` implementation. 
-We need to loop over all the items inside the structure including the nested ones.
-In most of the cases the UI will ask the toc items level per level meaning there is no nesting. 
-Nesting is currently used to get the location of an item in the toc. 
-This is then used to expand the toc to it's correct location when coming in using a direct link to a page.
+We need to loop over all the items inside the structure, including the nested ones.
+In most of the cases the UI will ask the TOC items level per level, meaning there is no nesting. Nesting is currently used to get the location of an item in the TOC.  This is then used to expand the TOC to its correct location when coming in using a direct link to a page.

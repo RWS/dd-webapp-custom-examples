@@ -1,8 +1,8 @@
-# Dita Delivery Web Application Customization examples [![Build Status](https://travis-ci.org/sdl/dd-webapp-custom-examples.svg?branch=master)](https://travis-ci.org/sdl/dd-webapp-custom-examples)
+# Dynamic Delivery Reference Implementation Customization examples [![Build Status](https://travis-ci.org/sdl/dd-webapp-custom-examples.svg?branch=master)](https://travis-ci.org/sdl/dd-webapp-custom-examples)
 
-This Repository contains out of documentation and examples for building a web applictation using the new Dynamic Delivery Platform.
+This Repository contains documentation and examples for building a web application, named Reference Implementation, using the new Dynamic Delivery Platform.
 
-If you have any feedback, questions feel free to report them as an issue and we'll come back to you asap.
+If you have any feedback or questions, feel free to report them as an issue and we'll come back to you asap.
 
 Contributions (eg fixing docs, adding more examples, ...) are more than welcome! Feel free to create a pull request.
 
