@@ -2,9 +2,9 @@
 
 In this tutorial we'll update the application skin using the Theming capabilities.
 
-I'll be using Visual Studio Code as my editor and will use the lightweight setup using a fake backend with mock data.
+We'll be using Visual Studio Code as editor and will use the lightweight setup using a fake backend with mock data.
 
-> You can find the code of this tutorial [here](../../custom-webapp/gui/src)
+> You can find the code for this tutorial [here](../../custom-webapp/gui/src)
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ See [Starting the application in debug mode](./Change-the-skin.md#starting-the-a
 ## Injecting a custom stylesheet file
 
 In order to some more advanced changes to the skin we'll create a new custom less file which we'll load as part of the application.
-This is considered to be more advanced and requires extra validation when upgrading you're application.
+This is considered to be more advanced and requires extra validation when upgrading your application.
 
 1. Create a new directory inside the `gui/src` directory called `custom-styles`
 2. Create a new less file called `skin-overwrites.less` inside this directory
@@ -39,7 +39,7 @@ import "./custom-styles/skin-overwrites";
 // ...
 ```
 
-4. Add following content inside the `skin-overwrites.less` file
+4. Add the following content inside the `skin-overwrites.less` file
 
 ```less
 @import (reference) "~theme-styles";
@@ -67,10 +67,10 @@ import "./custom-styles/skin-overwrites";
 
 ```
 
-The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the activity indicator, buttons and the tiles on the home page.
+The styles we've added inside the `skin-overwrites.less` will overwrite the styles of the activity indicator, the buttons and the tiles on the home page.
 
-To get access to the mixins / variables defined inside the theming directory we've added an import on the top `@import (reference) "~theme-styles";`.
-This import can be used in any less file to get access to the theming api's.
+To get access to the mixins / variables defined inside the theming directory, we've added an import on the top `@import (reference) "~theme-styles";`.
+This import can be used in any less file to get access to the theming API's.
 
 If you end up with a lot of customizations it makes sense to create different less files to have a better overview.
 For example a less file for the changes on the home page, one for the table of contents, etc...
